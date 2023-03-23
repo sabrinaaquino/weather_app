@@ -1,15 +1,26 @@
 {
   "name": "weather_app",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple weather app that fetches weather data from an API, processes the data, and displays it on a webpage.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
     "node-fetch": "^3.3.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabrinaaquino/weather_app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sabrinaaquino/weather_app/issues"
+  },
+  "homepage": "https://github.com/sabrinaaquino/weather_app#readme"
 }
