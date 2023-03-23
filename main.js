@@ -15,14 +15,33 @@ async function fetchWeatherData(cityName){
     return data;
 }
 
+let currentVideo = 1;
+
 function updateBackgroundVideo(temperature) {
-    const videoElement = document.getElementById('bgVideo');
+    console.log('updateBackgroundVideo called with temperature:', temperature);
+  
+    const nextVideo = currentVideo === 1 ? 2 : 1;
+    const videoElement = document.getElementById(`bgVideo${currentVideo}`);
     const sourceElement = videoElement.getElementsByTagName('source')[0];
     const videoName = temperature > 25 ? 'sunny' : 'partlycloudy';
+  
+    console.log('currentVideo:', currentVideo);
+    console.log('videoElement:', videoElement);
+    console.log('sourceElement:', sourceElement);
+  
     sourceElement.src = `${videoName}.mp4`;
     videoElement.load();
     videoElement.play();
-}
+  
+    videoElement.addEventListener("loadeddata", () => {
+      console.log('loadeddata event fired');
+  
+      document.getElementById(`bgVideo${currentVideo}`).classList.add("fade-out");
+      videoElement.classList.remove("fade-out");
+      currentVideo = nextVideo;
+  
+    });
+  }
 
 document.addEventListener('DOMContentLoaded', () => {
     const getWeatherDataButton = document.getElementById('weatherForm');

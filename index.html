@@ -12,9 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <video id="bgVideo" autoplay muted loop>
-        <source src="sunny.mp4" type="video/mp4">
-        <source src="partlycloudy.mp4" type="video/mp4">
+    <video id="bgVideo1" class="background-video fade-effect" autoplay muted loop>
+        <source src="sunny.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+    <video id="bgVideo2" class="background-video fade-effect" autoplay muted loop>
+        <source src="partlycloudy.mp4" type="video/mp4" />
         Your browser does not support the video tag.
     </video>
     <div class="container">
@@ -26,6 +29,7 @@
         <div id="weatherData">
             <!-- Weather data will be displayed here -->
         </div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
