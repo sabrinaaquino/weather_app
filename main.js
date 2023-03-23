@@ -1,7 +1,8 @@
 const apiKey = 'fdb9776aeaf5451d9f622810232303';
 
 async function fetchWeatherData(cityName){
-    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityName}`;
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const apiUrl = `${proxyUrl}http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityName}`;
     const response = await fetch(apiUrl);
 
     if (!response.ok) {
