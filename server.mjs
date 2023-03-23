@@ -14,8 +14,17 @@ app.get('/weather', async (req, res) => {
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
-        
-        res.json(data);
+        const current = data.current;
+
+        if (current) {
+          const result = {
+            temperature: current.temp_c,
+            condition: current.condition.text,
+          };
+          res.json(result);
+        } else {
+          res.status(404).json({ error: 'Weather data not found.' });
+        }
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'An error occurred while fetching weather data.' });

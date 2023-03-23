@@ -11,6 +11,7 @@ async function fetchWeatherData(cityName){
     }
 
     const data = await response.json();
+    console.log('Received data from server:', data);
     return data;
 }
 
