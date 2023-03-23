@@ -5,12 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Weather Data</h1>
-    <input type="text" id="cityInput" placeholder="Enter city name">
-    <button id="getWeatherData">Get Weather Data</button>
-    <div id="weatherData"></div>
+    <div class="container">
+        <h1>Weather Data</h1>
+        <form id="weatherForm" class="flex-container">
+            <input id="cityInput" type="text" class="city-input" placeholder="Enter city name">
+            <button id="getWeatherData" class="get-weather-data">Search</button>
+        </form>
+        <div id="weatherData">
+            <!-- Weather data will be displayed here -->
+        </div>
     <script src="main.js"></script>
 </body>
 </html>
