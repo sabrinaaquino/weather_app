@@ -36,14 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     try {
                     const weatherData= await fetchWeatherData(cityName);
 
-                    const temperature = weatherData.current.temp_c;
-                    const condition = weatherData.current.condition.text;
-                    
-                    updateBackgroundVideo(weatherData.current.temp_c);
+                    if (weatherData && weatherData.temperature && weatherData.condition) {
+                        const temperature = weatherData.temperature;
+                        const condition = weatherData.condition;
 
-                   
-                    //Displaying in the page
-                    weatherDataElement.innerHTML = `<h2>${cityName}</h2><p>Temperature: ${temperature}°C</p><p>Condition: ${condition}</p>`;
+                        updateBackgroundVideo(temperature);
+
+                        // Displaying in the page
+                        weatherDataElement.innerHTML = `<h2>${cityName}</h2><p>Temperature: ${temperature}°C</p><p>Condition: ${condition}</p>`;
+                    } else {
+                        throw new Error('Invalid data');
+                    }
                 } catch (error) {
                     console.error("Error", error);
                     weatherDataElement.innerHTML = `<p class="error-message">Error: Invalid city name or unable to fetch data. Please try again.</p>`;
